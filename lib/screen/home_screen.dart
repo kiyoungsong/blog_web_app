@@ -37,6 +37,14 @@ class HomeScreen extends StatelessWidget {
             actions: [
               IconButton(
                   onPressed: () {
+                    controller.goBack();
+                  },
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  )),
+              IconButton(
+                  onPressed: () {
                     if (controller != null) {
                       controller!.loadRequest(
                           Uri.parse("https://blog.codefactory.ai/"));
@@ -45,7 +53,15 @@ class HomeScreen extends StatelessWidget {
                   icon: Icon(
                     Icons.home,
                     color: Colors.white,
-                  ))
+                  )),
+              IconButton(
+                  onPressed: () {
+                    controller.goForward();
+                  },
+                  icon: Icon(
+                    Icons.arrow_forward,
+                    color: Colors.white,
+                  )),
             ]),
         body: WebViewWidget(controller: controller)));
   }
